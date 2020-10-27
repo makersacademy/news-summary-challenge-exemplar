@@ -1,0 +1,13 @@
+.headline {
+  margin: 0.5em;
+}
+
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:link:hover {
+  text-decoration: underline;
+  color: black;
+}

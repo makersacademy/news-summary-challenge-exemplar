@@ -26,9 +26,6 @@ class Headlines {
 
   render() {
     this.props.element.appendChild(this.element)
-    this.state.items.forEach(item => {
-      let headline = new Headline({element: this.element, data: item})
-      headline.render()
-    })
+    this.state.items.forEach(item => new Headline({element: this.element, data: item}))
   }
 }

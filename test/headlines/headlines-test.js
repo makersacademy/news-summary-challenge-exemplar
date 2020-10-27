@@ -34,7 +34,7 @@ describe('Headlines', () => {
   describe('setStateAndRender', () => {
     it('sets element inner html', () => {
       headlines.setStateAndRender([mockHeadlineData])
-      expect(mockElement.innerHTML).toBe(`<ul class="headlines"><li class="headline"><a href="${mockHeadlineData.webUrl}">${mockHeadlineData.webTitle}</a></li></ul>`)
+      expect(mockElement.innerHTML).toBe(`<ul class="headlines"><li class="headline"><a href="#/summaries/${mockHeadlineData.webUrl}">${mockHeadlineData.webTitle}</a></li></ul>`)
     })
 
     it('calls setState', () => {
@@ -72,7 +72,7 @@ describe('Headlines', () => {
     it('sets element html', () => {
       headlines.state.items = [mockHeadlineData]
       headlines.render()
-      expect(mockElement.innerHTML).toBe(`<ul class="headlines"><li class="headline"><a href="${mockHeadlineData.webUrl}">${mockHeadlineData.webTitle}</a></li></ul>`)
+      expect(mockElement.innerHTML).toBe(`<ul class="headlines"><li class="headline"><a href="#/summaries/${mockHeadlineData.webUrl}">${mockHeadlineData.webTitle}</a></li></ul>`)
     })
   })
 })

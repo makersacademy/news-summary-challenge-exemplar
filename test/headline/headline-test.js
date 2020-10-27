@@ -22,7 +22,7 @@ describe('Headline', () => {
   describe('render', () => {
     it('sets element html', () => {
       headline.render()
-      expect(mockElement.innerHTML).toBe(`<li class="headline"><a href="${mockHeadlineData.webUrl}">${mockHeadlineData.webTitle}</a></li>`)
+      expect(mockElement.innerHTML).toBe(`<li class="headline"><a href="#/summaries/${mockHeadlineData.webUrl}">${mockHeadlineData.webTitle}</a></li>`)
     })
   })
 })

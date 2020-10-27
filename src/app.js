@@ -1,6 +1,10 @@
 window.addEventListener("load", (event) => {
-  let headlinesDiv = document.getElementById("headlines");
+  let appElement = document.getElementById("app");
+  new Headlines({element: appElement, client: GuardianClient()})
 
-  let headlines = new Headlines({element: headlinesDiv, client: GuardianClient()})
-  headlines.render()
+  window.addEventListener("hashchange", (event) => {
+    let url = location.hash.split('summaries/')[1]
+    appElement.innerHTML = ''
+    new ArticleSummary({element: appElement, client: AylienClient(), url: url})
+  });
 })

@@ -1,4 +1,4 @@
-describe('Client', () => {
+describe('GuardianClient', () => {
   let client, callback, results;
 
   beforeEach(() => {
@@ -15,7 +15,7 @@ describe('Client', () => {
       .and
       .callFake(() => mockFetchPromise)
   })
-  
+
   describe('get', () => {
     it('calls fetch with url', () => {
       client.get('a url', callback)

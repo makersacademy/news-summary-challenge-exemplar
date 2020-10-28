@@ -1,11 +1,9 @@
 describe('AylienClient', () => {
-  let client, callback, results;
+  let client, callback, results, data;
 
   beforeEach(() => {
     client = AylienClient()
-    callback = jasmine.createSpy("callback")
-    let data = { text: 'a summary' }
-    text = data.text
+    data = { text: 'a summary' }
     let mockJsonPromise = Promise.resolve(data)
     let mockFetchPromise = Promise.resolve({
       json: () => mockJsonPromise
@@ -16,17 +14,17 @@ describe('AylienClient', () => {
       .callFake(() => mockFetchPromise)
   })
 
-  describe('get', () => {
+  describe('getSummary', () => {
     it('calls fetch with url', () => {
-      client.get('a url', callback)
+      client.getSummary('articleUrl')
 
-      expect(fetch).toHaveBeenCalledWith('a url')
+      expect(fetch).toHaveBeenCalledWith(`http://news-summary-api.herokuapp.com/aylien?apiRequestUrl=https://api.aylien.com/api/v1/summarize?url=articleUrl`)
     })
 
     it('calls callback with data', () => {
-      return client.get('a url', callback)
-        .then(() => {
-          expect(callback).toHaveBeenCalledWith(text)
+      return client.getSummary('articleUrl')
+        .then((res) => {
+          expect(res).toEqual(data.text)
         })
     })
   })

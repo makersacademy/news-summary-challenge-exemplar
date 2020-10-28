@@ -1,6 +1,7 @@
 class Headlines extends Component {
   constructor(props) {
     super(props)
+    this.children.Headline = this.children.Headline || Headline
     this.state = { items: [] }
     this.element = document.createElement("UL")
     this.element.classList.add("headlines");
@@ -8,7 +9,7 @@ class Headlines extends Component {
   }
 
   setupComponent() {
-    this.props.client.getHeadlines()
+    return this.props.client.getHeadlines()
       .then((data) => this.setStateAndRender({items: data}))
   }
 
@@ -20,6 +21,6 @@ class Headlines extends Component {
 
   render() {
     this.props.element.appendChild(this.element)
-    this.state.items.forEach(item => new Headline({element: this.element, client: GuardianClient(), data: item}))
+    this.state.items.forEach(item => new this.children.Headline({element: this.element, client: GuardianClient(), data: item}))
   }
 }

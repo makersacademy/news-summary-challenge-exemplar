@@ -1,7 +1,7 @@
 class ArticleSummary extends Component {
   constructor(props) {
     super(props)
-    this.state = { text: '' }
+    this.state = { text: '', thumbnail: '' }
     this.element = document.createElement("article")
     this.element.classList.add("article-summary");
     this.setupComponent()
@@ -20,7 +20,7 @@ class ArticleSummary extends Component {
     this.element.innerHTML = [
       `<img src="${this.state.thumbnail}">`,
       `<h3><a href="${this.props.item.webUrl}">${this.props.item.webTitle}</a></h3>`,
-      `<p>${this.state.text}<p>`
+      `<p>${this.state.text}</p>`
     ].join('')
   }
 }

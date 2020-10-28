@@ -8,7 +8,7 @@ class Headline extends Component {
   }
 
   setupComponent() {
-    this.props.client.getThumbnail(this.props.data.id)
+    return this.props.client.getThumbnail(this.props.data.id)
       .then(data => this.setStateAndRender({thumbnail: data}))
   }
 

@@ -8,7 +8,7 @@ class Headlines extends Component {
   }
 
   setupComponent() {
-    this.props.client.getHeadlines()
+    return this.props.client.getHeadlines()
       .then((data) => this.setStateAndRender({items: data}))
   }
 

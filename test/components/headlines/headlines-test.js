@@ -1,5 +1,5 @@
-fdescribe('Headlines', () => {
-  Headline = class {
+describe('Headlines', () => {
+  let mockHeadline = class {
       constructor(props) {
         props.element.innerText = "mock-headline"
       }
@@ -27,7 +27,7 @@ fdescribe('Headlines', () => {
     spyOn(mockClient, "getHeadlines")
       .and
       .callFake(() => Promise.resolve([mockHeadlineData]))
-    headlines = new Headlines({element: mockElement, client: mockClient})
+    headlines = new Headlines({element: mockElement, client: mockClient, children: { Headline: mockHeadline }})
   })
 
   describe('setupComponent', () => {

@@ -1,4 +1,4 @@
-fdescribe('AylienClient', () => {
+describe('AylienClient', () => {
   let client, callback, results, data;
 
   beforeEach(() => {

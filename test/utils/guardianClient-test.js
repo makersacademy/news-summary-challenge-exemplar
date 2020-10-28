@@ -1,4 +1,4 @@
-fdescribe('GuardianClient', () => {
+describe('GuardianClient', () => {
   let client, callback, results, itemId, thumbnail;
 
   beforeEach(() => {
